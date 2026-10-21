@@ -5,19 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FitControl</title>
 <style>
-  body { font-family: Arial, sans-serif; background: #111; color: #eee; text-align: center; padding: 40px 16px; }
-  a.boton { display: inline-block; background: #2e7d32; color: #fff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-size: 18px; }
-  ol { text-align: left; max-width: 520px; margin: 30px auto; line-height: 1.6; }
+  :root { --bg:#111; --card:#1c1c1c; --txt:#eee; --sub:#aaa; --verde:#2e7d32; --borde:#333; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--txt); line-height:1.6; padding:32px 16px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { margin:0 0 4px; font-size:28px; }
+  .sub { color:var(--sub); margin:0 0 24px; }
+  .boton { display:inline-block; background:var(--verde); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-size:18px; font-weight:bold; }
+  .card { background:var(--card); border:1px solid var(--borde); border-radius:10px; padding:20px 24px; margin:24px 0; }
+  h2 { margin-top:0; font-size:20px; }
+  ol li { margin-bottom:12px; }
+  code { background:#000; color:#8bc34a; padding:2px 6px; border-radius:4px; word-break:break-all; }
+  pre { background:#000; color:#8bc34a; padding:12px; border-radius:6px; overflow-x:auto; white-space:pre-wrap; word-break:break-all; }
+  .nota { color:var(--sub); font-size:14px; }
+  table { width:100%; border-collapse:collapse; font-size:15px; }
+  td { border-top:1px solid var(--borde); padding:8px 6px; vertical-align:top; }
+  td:first-child { font-weight:bold; width:38%; }
 </style>
 </head>
 <body>
+<div class="wrap">
   <h1>FitControl - Sistema de Gestion de Gimnasio</h1>
-  <p>Proyecto Final - Algoritmos y Estructuras de Datos - Elizabeth Quiroz</p>
+  <p class="sub">Proyecto Final - Algoritmos y Estructuras de Datos - Elizabeth Quiroz - Cibertec</p>
+
   <a class="boton" href="fitcontrol.jnlp">Ejecutar FitControl (JNLP)</a>
-  <ol>
-    <li>Requiere Java 8 (con Java Web Start).</li>
-    <li>Panel de Control de Java &gt; Seguridad &gt; Editar lista de sitios &gt; agregar la direccion de esta pagina.</li>
-    <li>Descargar y abrir <b>fitcontrol.jnlp</b>, aceptar el aviso de seguridad.</li>
-  </ol>
+
+  <div class="card">
+    <h2>Instrucciones para ejecutar</h2>
+    <ol>
+      <li><b>Tener Java 8 instalado</b> (incluye Java Web Start). Si no lo tiene, descargarlo de <a href="https://www.java.com/es/download/" style="color:#8bc34a">java.com</a>.</li>
+      <li><b>Agregar este sitio a la lista de excepciones de Java</b> (solo la primera vez):<br>
+        Buscar en Windows <b>"Configurar Java"</b> &rarr; pestana <b>Seguridad</b> &rarr; <b>Editar lista de sitios</b> &rarr; <b>Agregar</b> &rarr; escribir:<br>
+        <code>https://elizabeth120109.github.io</code><br>&rarr; <b>Aceptar</b> &rarr; <b>Aceptar</b>.</li>
+      <li><b>Hacer clic en el boton verde</b> "Ejecutar FitControl (JNLP)". Se descarga <code>fitcontrol.jnlp</code>: abrirlo con doble clic.<br>
+        <span class="nota">O desde la consola (CMD):</span>
+        <pre>javaws https://elizabeth120109.github.io/fitcontrol/fitcontrol.jnlp</pre></li>
+      <li>En el aviso de seguridad, marcar <b>"Acepto el riesgo y deseo ejecutar esta aplicacion"</b> &rarr; <b>Ejecutar</b>.</li>
+      <li>Se abre FitControl con <b>datos de ejemplo</b> ya cargados (socios, planes, membresias y suspensiones).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Si algo falla</h2>
+    <table>
+      <tr><td>"Aplicacion bloqueada por la seguridad de Java"</td><td>Falta el paso 2 (agregar el sitio a la lista de excepciones).</td></tr>
+      <tr><td>Se abre una version antigua o da error</td><td>Limpiar la cache de Java en CMD: <code>javaws -uninstall</code> y volver a intentar.</td></tr>
+      <tr><td>"javaws" no se reconoce</td><td>Instalar Java 8 desde java.com (las versiones 11+ ya no incluyen Java Web Start).</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Detalles tecnicos</h2>
+    <ul>
+      <li>Compilado para Java 8 (compatible con Java 8 o superior).</li>
+      <li>JAR firmado con certificado propio (por eso se requiere la excepcion de sitio).</li>
+      <li>Los datos se guardan en archivos <code>.txt</code>; si no existen, se crean con datos de ejemplo.</li>
+      <li>Modulos: Mantenimiento (Socios, Planes), Registro (Membresias, Suspensiones), Consultas y Reportes.</li>
+    </ul>
+  </div>
+</div>
 </body>
 </html>
