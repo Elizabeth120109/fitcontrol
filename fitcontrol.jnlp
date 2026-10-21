@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="https://elizabeth120109.github.io/fitcontrol/" href="fitcontrol.jnlp">
+    <information>
+        <title>FitControl - Sistema de Gestion de Gimnasio</title>
+        <vendor>Elizabeth Quiroz</vendor>
+        <description>Sistema de Control de Socios y Membresias</description>
+    </information>
+
+    <security>
+        <all-permissions/>
+    </security>
+
+    <resources>
+        <j2se version="1.8+"/>
+        <jar href="ProyectoFinal.jar" main="true"/>
+        <jar href="lib/AbsoluteLayout.jar"/>
+    </resources>
+
+    <application-desc main-class="gui.MenuPrincipal"/>
+</jnlp>
